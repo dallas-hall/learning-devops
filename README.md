@@ -2,6 +2,8 @@
 
 From https://www.udemy.com/course/the-complete-devops-bootcamp/ and https://kodekloud.com/courses/lab-course-the-complete-devops-bootcamp/
 
+I did this as a refresher after taking 3 months off of work on long service leave. 😎
+
 ## 1) Introduction
 
 A basic overview of how development and operations works and this can become DevOps.
