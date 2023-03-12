@@ -2,6 +2,8 @@
 
 I basically knew most of this already from the excellent [CKAD](https://github.com/dallas-hall/learning-containers-and-orchestration/tree/main/kubernetes/02.applications-developer), [CKA](https://github.com/dallas-hall/learning-containers-and-orchestration/tree/main/kubernetes/03.administrator), and [CKS](https://github.com/dallas-hall/learning-containers-and-orchestration/tree/main/kubernetes/04.security) courses that I did. So the only thing documented here is course specific or something I didn't know.
 
+## Networking
+
 ```bash
 # View the host interfaces
 ip link
@@ -45,3 +47,30 @@ ip route add $TARGET_CIDR via $ROUTER_IP
 * You can check packet forwarding between interfaces at `/proc/sys/net/ipv4/ip_forward` and you can permanently toggle it in `/etc/sysctl.conf` via the `net.ipv4.ip_forward` entry.
 
 ![](images/networking07.png)
+
+## DNS
+
+* Entries within `/etc/hosts` are considered truthful and not verified. This can be use for normal and malicious purposes.
+
+![](images/dns01.png)
+
+* The DNS Name Server is configured in `/etc/resolv.conf` using `nameserver $IP_ADDRESS`
+
+![](images/dns02.png)
+
+* The DNS resolution order can be configured in `/etc/nsswitch.conf` where `files` is for local DNS resolution and `dns` is for a DNS Nameserver resolution.
+* In the picture below the default is displayed, which is local DNS resolution and then DNS Name Server resolution.
+
+![](images/dns03.png)
+
+* You will likely want to add a `nameserver $IP_ADDRESS` entry into `/etc/resolv.conf` for an Internet DNS Name Server like Google or Cloud Flare so you can resolve internet resources.
+
+![](images/dns04.png)
+
+* The result of DNS resolution is typically cached temporarily so the same lookup isn't made multipe times. This is typically a few seconds to a few minutes.
+
+![](images/dns05.png)
+
+* Add `search $DOMAIN` into `/etc/resolv.conf` to tell the DNS Name Server to search that domain for hosts without using the FDQN.
+
+![](images/dns06.png)
