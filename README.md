@@ -8,6 +8,7 @@ I did this as a refresher after taking 3 months off of work on long service leav
 
 - [1) Introduction](#1-introduction)
 - [2) Linux Basics](#2-linux-basics)
+- [3) Networking Basics](#3-networking-basics)
 
 ## 1) Introduction
 
@@ -16,4 +17,8 @@ Notes available [here.](./01.intro.md)
 ## 2) Linux Basics
 
 Notes available [here.](./02.linux-basics.md)
+
+## 3) Networking Basics
+
+Notes available [here.](./02.network-basics.md)
 
