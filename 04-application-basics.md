@@ -1,6 +1,6 @@
 # Application Basics <!-- omit in toc -->
 
-I knew some of this from learning to program in Java and Python but I NodeJS was all new to me.
+I knew some of this from learning to program in Java and Python but I NodeJS was all new to me. So the only thing documented here is course specific or something I didn't know.
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -42,6 +42,8 @@ I knew some of this from learning to program in Java and Python but I NodeJS was
 * CI/CD pipelines automate the repeated processes in software development, such as build (i.e compile), test, package, and deploy.
 
 ## Java
+
+My Java code from learning Java can be found [here](https://github.com/dallas-hall/learning-java).
 
 * Java 9 made a lot of backwards incompatible changes which is why a lot of apps are stuck at Java 1.8.
 * The naming scheme for Java dropped the 1 dot after version 9, so instead of Java 1.9 it became Java 9.
@@ -152,3 +154,31 @@ npm install $NAME -g
 ![](images/javascript08.png)
 
 ## Python
+
+My Python code from learning Python can be found [here](https://github.com/dallas-hall/learning-python).
+
+* Python 2 and Python 3 were available side by side until Python 2 was deprecated in January 2020. They are not compatible and on older systems you may see Python 2, Python 3, or both installed.
+
+![](images/python01.png)
+
+![](images/python02.png)
+
+* `pip` is the package manager in Python. It is installed automatically when Python is installed.
+
+![](images/python03.png)
+
+* Global Python packages are installed into `/usr/lib/$PYTHON_VERSION/site-packages/` or `/usr/lib64/$PYTHON_VERSION/site-packages/`.
+* Run `python -c "import sys; print(sys.path)"` to view where Python will search for packages. This is where the `import` statement will look for packages.
+
+![](images/python04.png)
+
+![](images/python05.png)
+
+![](images/python06.png)
+
+* There are other ways to create and install Python packages that were around before `pip`.
+* `setuptools` is used to create Python package files. It create Egg package files with the `.egg` extensions and Wheel package files with the `.whl` extension. They are conceptually similar to `.jar` in Java.
+* `easy_install` can work with `.egg` files. They don't need to be unpacked before use.
+* `wheels` can work with `.whl` files. They need to be unpacked before use.
+
+![](images/python07.png)
