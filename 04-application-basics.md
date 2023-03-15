@@ -90,7 +90,65 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 ![](images/java11.png)
 
-
 ## NodeJS
+
+* JavaScript was traditionally used for clientside web applications in the browser. It was used to build a variety of clientside frameworks.
+
+![](images/javascript01.png)
+
+* NodeJS is the way to run JavaScript outside of a web broswer. Allowing JavaScript to be used in the backend.
+* It can handle a large number of concurrent connections by implementing a non-blocking model.
+* https://nodejs.org/en/download/ explains how to install on various platforms
+
+```bash
+# Check the NodeJS version
+node -v
+
+# Run an app
+node $APP_PATH
+```
+
+![](images/javascript02.png)
+
+* `npm` is the NodeJS Package Manager.
+* It has code from the core team as well as the community.
+
+![](images/javascript03.png)
+
+```bash
+# Check the npm version
+npm -v
+
+# Search for a package
+npm search $NAME
+
+# Install a package locally inside the current directory
+npm install $NAME
+
+# Install a package globally into the operating system
+npm install $NAME -g
+```
+
+![](images/javascript04.png)
+
+* The `package.json` file for the package contains the package metadata for the installed package, including dependencies
+
+![](images/javascript05.png)
+
+* Pacakges can either be installed locally into `$APP_PATH/node_modules/$PACKAGE` or globally into `/usr/lib/node_modules/$PACKAGE`.
+* When installing a package locally NPM installs into the current directory as it assumes that is your applications workspace.
+* `node -e "console.log(module.paths)"` shows all the filesystem paths that will be checked for installed packages.
+
+![](images/javascript06.png)
+
+* There are 2 types of modules:
+  1. Builtin modules which are installed automatically. They are installed into `/usr/lib/node_modules/npm/node_modules`
+  2. External modules that need to be installed manually. They are installed into `/usr/lib/node_modules/`
+
+![](images/javascript07.png)
+
+* The `package.json` file for the project contains the package metadata for the project, including dependencies
+
+![](images/javascript08.png)
 
 ## Python
