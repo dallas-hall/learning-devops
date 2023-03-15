@@ -1,6 +1,6 @@
 # Application Basics <!-- omit in toc -->
 
-I knew some of this from learning to program in Java and Python but I NodeJS was all new to me. So the only thing documented here is course specific or something I didn't know.
+I knew some of this from learning to program in Java and Python but NodeJS was all new to me. So the only thing documented here is course specific or something I didn't know.
 
 ## Table of Contents <!-- omit in toc -->
 
