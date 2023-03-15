@@ -1,6 +1,12 @@
-# Network Basics
+# Network Basics <!-- omit in toc -->
 
 I basically knew most of this already from the excellent [CKAD](https://github.com/dallas-hall/learning-containers-and-orchestration/tree/main/kubernetes/02.applications-developer), [CKA](https://github.com/dallas-hall/learning-containers-and-orchestration/tree/main/kubernetes/03.administrator), and [CKS](https://github.com/dallas-hall/learning-containers-and-orchestration/tree/main/kubernetes/04.security) courses that I did. So the only thing documented here is course specific or something I didn't know.
+
+## Table of Contents <!-- omit in toc -->
+
+- [Networking](#networking)
+- [DNS](#dns)
+
 
 ## Networking
 
