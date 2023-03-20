@@ -88,6 +88,13 @@ git push origin $BRANCH
 
 # Create a copy of the remote repo onto your local machine
 git clone $URL
+
+# Get the latest changes and merge them into the local branch
+get fetch origin $BRANCH
+git merge $BRANCH
+
+# Get the latest changes and merge them into the local branch in 1 step
+git pull origin $BRANCH
 ```
 
 ## 1) Introduction
@@ -209,3 +216,24 @@ git clone $URL
 * The PR can only be merged with the correct permissions.
 
 ![](images/git23.png)
+
+* `git fetch` and `git merge` can be done in 1 command, `git pull`. These will pull changes from the remote branch and merge them into the local branch.
+* Remote branches have the `remote/` prefix.
+* Merge conflicts happens when 2 or more people edit the same file at once. Git doesn't know which version to keep so manual intervention is required.
+
+![](images/git24.png)
+
+* Git will show a comparison of the versions of the conflicted file and it is up to a person to manually choose which lines to keep and which to delete.
+  * Below `<<<<<<< HEAD` is the content that exists in the current branch which HEAD is pointing to.
+  * `=======` is the centre dividing line of the conflict.
+  * Above `>>>>>>> $BRANCH` is the content present in our merging branch.
+
+![](images/git25.png)
+
+* The changes to resolve the merge conflict need to be commited and merged into the branch and everyone else needs to pull them.
+
+![](images/git26.png)
+
+* Forking a Git repo is creating a copy of a remote repo. You would do this when you don't have write permission to the remote repo. So you can create your own changes before submitting a pull request to merge your changes back into the original.
+
+![](images/git27.png)
