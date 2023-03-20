@@ -76,6 +76,18 @@ git branch -d $BRANCH
 # Merge a branch into master
 git checkout master
 git merge $BRANCH_MERGE
+
+# Add remote repository
+git remote add origin $URL
+
+# List remote repositories
+git remote -v
+
+# Push the local repo to the remote repo
+git push origin $BRANCH
+
+# Create a copy of the remote repo onto your local machine
+git clone $URL
 ```
 
 ## 1) Introduction
@@ -173,4 +185,27 @@ git merge $BRANCH_MERGE
 
 ## 3) Remote Repositories
 
+* There are several common platforms for hosting remote repositories. The 3 most common are:
+  1. GitHub
+  2. GitLab
+  3. Bitbucket.
 
+![](images/git19.png)
+
+* Git uses a connection string (i.e. URL) to connect to the remote repository.
+
+![](images/git20.png)
+
+* The default name for the remote repository is `origin`.
+
+![](images/git21.png)
+
+* Git clones a remote repo onto the local machine into a directory with the same name as the remote repo.
+
+![](images/git22.png)
+
+* A pull request (PR) is needed to merge a branch into another branch.
+* PRs are used for code reviews.
+* The PR can only be merged with the correct permissions.
+
+![](images/git23.png)
