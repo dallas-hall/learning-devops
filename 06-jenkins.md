@@ -6,6 +6,7 @@ I knew some of this from work. So the only thing documented here is course speci
 
 - [What Is CI/CD?](#what-is-cicd)
 - [Why Jenkins?](#why-jenkins)
+- [Installing Jenkins](#installing-jenkins)
 
 ## What Is CI/CD?
 
@@ -24,3 +25,8 @@ Some good things about Jenkins:
 * Has a lot of plugins as it is open source and has been around for a long time.
 * Has enterprise support available.
 
+## Installing Jenkins
+
+Jenkins is really easy to install. See https://www.jenkins.io/doc/book/installing/ for a variety of options.
+
+Jenkins can be controlled by the GUI or the CLI. The CLI is available via `curl`. Go to Manage Jenkins > Jenkins CLI and follow the steps. You will typically use the GUI to manage Jenkins.
