@@ -21,7 +21,6 @@ I knew some of this from work. So the only thing documented here is course speci
 ## Why Jenkins?
 
 * Jenkins is commonly used to create CI/CD pipelines.
-
 * Some good things about Jenkins:
   * It is free.
   * Has a lot of plugins as it is open source and has been around for a long time.
@@ -49,3 +48,16 @@ I knew some of this from work. So the only thing documented here is course speci
 
 ## Pipelines
 
+* A **Jenkins Pipeline** (or simply "Pipeline" with a capital "P") is a suite of plugins which supports implementing and integrating continuous delivery pipelines into Jenkins.
+* A `Jenkinsfile` is a text file that contains the definition of a Jenkins Pipeline and is checked into source control.
+* A **node** is a machine which is part of the Jenkins environment and is capable of executing a Pipeline.
+* A **stage** block defines a conceptually distinct subset of tasks performed through the entire Pipeline (e.g. "Build", "Test" and "Deploy" stages), which is used by many plugins to visualize or present Jenkins Pipeline status/progress.
+* A **step** tells Jenkins what to do at a particular point in time.
+
+![](images/jenkins03.png)
+
+* A multi-stage pipeline which combines all stages into a single `Jenkinsfile`. This just means you have multiple stages within the `Jenkinsfile`.
+
+![](images/jenkins04.png)
+
+* By default all pipelines are under the `/var/lib/jenkins/workspace/$PIPELINE_NAME` folder.
