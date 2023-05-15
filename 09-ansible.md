@@ -14,3 +14,13 @@ https://www.osboxes.org/ contains some prebuilt and preconfigured VMs for Virtua
 - name: Run a script with arguments (free form)
   ansible.builtin.script: /some/local/script.sh --some-argument 1234
 ```
+
+Everything after `with_*` is a lookup plugin. They are custom scripts that can do specific tasks.
+
+```bash
+# Search for roles
+ansible-galaxy search $STRING
+
+# View Ansible config
+ansible-config dump | grep -i role
+```
