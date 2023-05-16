@@ -5,6 +5,7 @@ I knew nothing when doing this course so the notes will be verbose.
 - [1) Infrastructure as Code (IaC)](#1-infrastructure-as-code-iac)
   - [1.1) Types Of IaC](#11-types-of-iac)
   - [1.2) Why Terraform?](#12-why-terraform)
+- [2) Hashicorp Configuration Language (HCL) Introduction](#2-hashicorp-configuration-language-hcl-introduction)
 
 ## 1) Infrastructure as Code (IaC)
 
@@ -46,7 +47,7 @@ Ansible and Terraform can both do provisioning. But typically Terraform is used 
 
 ### 1.2) Why Terraform?
 
-It is a free and open source tool that supports multiple public and private cloud environments as well as software stacks. It does this via the product's or service's API through objects called Providers.
+It is a free and open source tool that supports multiple public and private cloud environments as well as software stacks. It does this via the product's or service's API through objects called Providers. Terraform supports over 100 Providers.
 
 ![](images/terraform05.png)
 
@@ -64,3 +65,39 @@ Terraform goes through 3 stages when applying HCL.
 Every object that Terraform manages is called a Resource.
 
 Terraform Cloud and Terraform Enterprise provide additional features.
+
+## 2) Hashicorp Configuration Language (HCL) Introduction
+
+These are text files with a `.tf` file extension. They have a simple structure.
+
+![](images/terraform08.png)
+
+The Resource Type its broken up into 2 sections. The prefix before the underscore is the Provider and the suffix after the underscore is the Resource Type.
+
+![](images/terraform09.png)
+
+There are 4 steps to using Terraform.
+1. Write the HCL file.
+2. Run the `terraform init` command to parse the `.tf` file and configure the project.
+3. Run the `terraform plan` command shows the actions it will perform to create the resource. The output is similar to `diff`, the `+` sybmol shows the lines that will be created.
+4. Run the `terraform apply` command will display the execution plan and ask the user to confirm if they want to create the Resource.
+
+![](images/terraform10.png)
+
+![](images/terraform11.png)
+
+![](images/terraform12.png)
+
+![](images/terraform13.png)
+
+`terraform show` can be used to show the Resource that was created.
+
+![](images/terraform14.png)
+
+Terraform creates immutable infrastructure. So updating Resources will typically result in the original Resource being deleted and replaced. We can see this in the output of `terraform plan` and `terraform apply` by the `+/-` showing creation and deletion and the `~` showing the changes being made.
+
+![](images/terraform15.png)
+
+`terraform destory` is used to delete Resources. This will delete all Resources in the `.tf` file.
+
+![](images/terraform16.png)
