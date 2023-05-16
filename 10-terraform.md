@@ -4,6 +4,7 @@ I knew nothing when doing this course so the notes will be verbose.
 
 - [1) Infrastructure as Code (IaC)](#1-infrastructure-as-code-iac)
   - [1.1) Types Of IaC](#11-types-of-iac)
+  - [1.2) Why Terraform?](#12-why-terraform)
 
 ## 1) Infrastructure as Code (IaC)
 
@@ -34,8 +35,8 @@ Using virtualisation on-premise or in the cloud gives a big advantage of enablin
 
 There are 3 types of IaC tools.
 1. Configuration management tools, used to control the state of systems.
-2. Server templating tools, used to create and configure server software.
-3. Provisioning tools, used to create and configure virtual or cloud servers.
+2. Server templating tools, used to create and configure server software that runs inside of a container or a virtual machine.
+3. Provisioning tools, used to create and configure private or public cloud servers.
 
 ![](images/terraform03.png)
 
@@ -43,3 +44,23 @@ Ansible and Terraform can both do provisioning. But typically Terraform is used 
 
 ![](images/terraform04.png)
 
+### 1.2) Why Terraform?
+
+It is a free and open source tool that supports multiple public and private cloud environments as well as software stacks. It does this via the product's or service's API through objects called Providers.
+
+![](images/terraform05.png)
+
+It uses a simple declarative language to provision and configure things. This language is called **Hashicorp Configuration Language (HCL).**
+
+![](images/terraform06.png)
+
+Terraform goes through 3 stages when applying HCL.
+1. Init: initialises the project and identifies the Providers to use.
+2. Plan: creates a plan to get to the desired state.
+3. Apply: applies the changes to the target so it matches the desired state.
+
+![](images/terraform07.png)
+
+Every object that Terraform manages is called a Resource.
+
+Terraform Cloud and Terraform Enterprise provide additional features.
