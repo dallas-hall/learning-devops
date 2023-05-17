@@ -6,6 +6,8 @@ I knew nothing when doing this course so the notes will be verbose.
   - [1.1) Types Of IaC](#11-types-of-iac)
   - [1.2) Why Terraform?](#12-why-terraform)
 - [2) Hashicorp Configuration Language (HCL) Introduction](#2-hashicorp-configuration-language-hcl-introduction)
+- [3) Terraform Basics](#3-terraform-basics)
+  - [3.1) Providers](#31-providers)
 
 ## 1) Infrastructure as Code (IaC)
 
@@ -56,9 +58,9 @@ It uses a simple declarative language to provision and configure things. This la
 ![](images/terraform06.png)
 
 Terraform goes through 3 stages when applying HCL.
-1. Init: initialises the project and identifies the Providers to use.
-2. Plan: creates a plan to get to the desired state.
-3. Apply: applies the changes to the target so it matches the desired state.
+1. Init, initialises the project and identifies the Providers to use.
+2. Plan, creates a plan to get to the desired state.
+3. Apply, applies the changes to the target so it matches the desired state.
 
 ![](images/terraform07.png)
 
@@ -101,3 +103,25 @@ Terraform creates immutable infrastructure. So updating Resources will typically
 `terraform destory` is used to delete Resources. This will delete all Resources in the `.tf` file.
 
 ![](images/terraform16.png)
+
+## 3) Terraform Basics
+
+### 3.1) Providers
+
+`terraform init` downloads and configures plugins for the Providers used within the `.tf` file. Providers are hosted at https://registry.terraform.io and there are 3 types of Providers.
+1. Official, these are maintained by Hashicorp.
+2. Verified, these are maintained by third parties that are partnered with Hashicorp.
+3. Communit, these are maintained by members of Terraform community.
+
+![](images/terraform17.png)
+
+`terraform init` shows which version is being installed. They are installed into `$PROJECT_PATH/.terraform/plugins` and by default the lastest version is installed. But you can freeze verions too.
+
+![](images/terraform18.png)
+
+Terraform uses a similar convention to Docker images. `${REGISTRY_URL}:${ORGANISATION}/{$TYPE}`. Like Docker, the `${REGISTRY_URL}` is optional and it defaults to https://registry.terraform.io
+
+![](images/terraform19.png)
+
+![](images/terraform20.png)
+
