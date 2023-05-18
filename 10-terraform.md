@@ -7,7 +7,9 @@ I knew nothing when doing this course so the notes will be verbose.
   - [1.2) Why Terraform?](#12-why-terraform)
 - [2) Hashicorp Configuration Language (HCL) Introduction](#2-hashicorp-configuration-language-hcl-introduction)
 - [3) Terraform Basics](#3-terraform-basics)
-  - [3.1) Providers](#31-providers)
+  - [3.1) Configuration Directory](#31-configuration-directory)
+  - [3.2) Providers](#32-providers)
+  - [3.3) Variables](#33-variables)
 
 ## 1) Infrastructure as Code (IaC)
 
@@ -106,7 +108,16 @@ Terraform creates immutable infrastructure. So updating Resources will typically
 
 ## 3) Terraform Basics
 
-### 3.1) Providers
+### 3.1) Configuration Directory
+
+The configuration directoy can have multiple `.tf` files or you can bundle everything into the same file with multiple code blocks. This single file is typically called `main.tf`. There are some other files that Terraform looks for:
+* `variables.tf`, contains variables.
+* `outputs.tf`, contains output from Resources.
+* `provider.tf`, contains Provider definitions.
+
+![](images/terraform21.png)
+
+### 3.2) Providers
 
 `terraform init` downloads and configures plugins for the Providers used within the `.tf` file. Providers are hosted at https://registry.terraform.io and there are 3 types of Providers.
 1. Official, these are maintained by Hashicorp.
@@ -124,4 +135,47 @@ Terraform uses a similar convention to Docker images. `${REGISTRY_URL}:${ORGANIS
 ![](images/terraform19.png)
 
 ![](images/terraform20.png)
+
+You can use multiple Providers within the same `.tf` file.
+
+The random Provider can be used to generate random output.
+
+### 3.3) Variables
+
+Place your variables into `variables.tf` and reference them inside your `.tf` file.
+
+![](images/terraform22.png)
+
+You can give variables:
+* A `default` value.
+* A data `type`. The default is `any` if nothing is set.
+* A `description`.
+
+![](images/terraform23.png)
+
+There are a variety of data types.
+
+![](images/terraform24.png)
+
+![](images/terraform25.png)
+
+![](images/terraform26.png)
+
+You can enforce data types with data structures.
+
+![](images/terraform27.png)
+
+![](images/terraform28.png)
+
+Set cannot have duplicate elements.
+
+![](images/terraform29.png)
+
+A Tuple can have multiple data types as elements. The defined element types must match.
+
+![](images/terraform30.png)
+
+You can use Objects to create your own data structure by using any data type provided by Terraform.
+
+![](images/terraform31.png)
 
