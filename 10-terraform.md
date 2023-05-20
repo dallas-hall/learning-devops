@@ -10,6 +10,7 @@ I knew nothing when doing this course so the notes will be verbose.
   - [3.1) Configuration Directory](#31-configuration-directory)
   - [3.2) Providers](#32-providers)
   - [3.3) Variables](#33-variables)
+  - [3.3.1) Passing In Variables](#331-passing-in-variables)
 
 ## 1) Infrastructure as Code (IaC)
 
@@ -147,9 +148,9 @@ Place your variables into `variables.tf` and reference them inside your `.tf` fi
 ![](images/terraform22.png)
 
 You can give variables:
-* A `default` value.
-* A data `type`. The default is `any` if nothing is set.
-* A `description`.
+* An optional `default` value.
+* An optional data `type`. The default is `any` if nothing is set.
+* An optional `description`.
 
 ![](images/terraform23.png)
 
@@ -178,4 +179,39 @@ A Tuple can have multiple data types as elements. The defined element types must
 You can use Objects to create your own data structure by using any data type provided by Terraform.
 
 ![](images/terraform31.png)
+
+### 3.3.1) Passing In Variables
+
+If the optional `default` isn't set then there is a variety of ways to pass in the value of the variable.
+* Being prompted to type in the values using interactive mode.
+
+![](images/terraform32.png)
+
+* Using command line flags to pass the values in.
+
+![](images/terraform33.png)
+
+* Using environment variables to pass the values in.
+
+![](images/terraform34.png)
+
+* Using a file to pass the values in.
+
+![](images/terraform35.png)
+
+The following filenames `terraform.tfvars`, `terraform.tfvars.json`, `*.auto.tfvars`, and `auto.tfvars.json` are automatically loaded when doing `terraform apply`.
+
+![](images/terraform36.png)
+
+If the filename isn't one of the 4 automatically loaded it will need to be specified via `terraform apply -var-file $FILE`.
+
+Variable precedenc is required since there are multiple ways to declare variables. The precedence ranking from highest to lowest is:
+1. Command line.
+2. Auto-loaded files, which are parsed in alphabetical order.
+3. `terraform.tfvars` or `terraform.tfvars.json`
+4. Environment varaibles.
+
+**NOTE:** This screenshot is showing it from lowest precedence (top) to highest precedece (bottom).
+
+![](images/terraform37.png)
 
