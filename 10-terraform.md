@@ -215,3 +215,30 @@ Variable precedenc is required since there are multiple ways to declare variable
 
 ![](images/terraform37.png)
 
+You can use variables from a Terraform Resource. For example, using the `random_*` Resource to generate a random string and inject that value into another Resource.
+
+![](images/terraform38.png)
+
+There are 2 types of Resource Dependencies:
+1. Implicit Dependencies.
+2. Explicit Dependencies, when the user explicitly states that there is a dependency.
+
+**Implicit Dependencies** is when Terraform is able to automatically figure out there is a dependency and will create and delete the objects in the correct order.
+
+![](images/terraform39.png)
+
+**Explicit Dependencies** when the user explicitly states that there is a dependency. This is needed when a Resource B needs to be created before Resource A and Resource A doesn't reference anything from Resource B.
+
+![](images/terraform40.png)
+
+Terraform supports output variables to store information. The `value` section expects a reference expression.
+
+![](images/terraform41.png)
+
+`terraform apply` will print the output variable's content to the screen. You can use `terraform output` to view them all later or the `terraform output $NAME` to view a specific variable.
+
+![](images/terraform42.png)
+
+![](images/terraform43.png)
+
+Output variables are commonly used to send data to other tools like Ansible.
