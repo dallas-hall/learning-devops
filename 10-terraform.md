@@ -11,6 +11,8 @@ I knew nothing when doing this course so the notes will be verbose.
   - [3.2) Providers](#32-providers)
   - [3.3) Variables](#33-variables)
   - [3.3.1) Passing In Variables](#331-passing-in-variables)
+  - [3.4) State](#34-state)
+- [4) Working With Terraform](#4-working-with-terraform)
 
 ## 1) Infrastructure as Code (IaC)
 
@@ -242,3 +244,26 @@ Terraform supports output variables to store information. The `value` section ex
 ![](images/terraform43.png)
 
 Output variables are commonly used to send data to other tools like Ansible.
+
+### 3.4) State
+
+The first run of the `terraform apply` command creates a file called `terraform.tfstate`. This is a JSON file that contains information about the objects Terraform has created and is subsequently managing. Additional `terraform apply`'s will result in `terraform.tfstate` being checked to see if any changes have been made, and if so, Terraform will apply the changes to the managed objects and the state file.
+
+![](images/terraform44.png)
+
+Terraform tracks Implicit and Explicit dependencies within the state file. It uses metadata to do this.
+
+Terraform stores a cache of object state. `terraform $CMD --refresh=false` will force Terraform to use the cache instead of recalculating state.
+
+![](images/terraform45.png)
+
+The `terraform.tfstate` file should checked in to a remote repository when working in a team. This ensures all team members have access to the latest state file.
+
+![](images/terraform46.png)
+
+But be aware that the state file contains sensitive information within it.
+
+![](images/terraform47.png)
+
+## 4) Working With Terraform
+
