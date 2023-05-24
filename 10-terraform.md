@@ -13,6 +13,7 @@ I knew nothing when doing this course so the notes will be verbose.
   - [3.3.1) Passing In Variables](#331-passing-in-variables)
   - [3.4) State](#34-state)
 - [4) Working With Terraform](#4-working-with-terraform)
+  - [4.1) Additional Commands](#41-additional-commands)
 
 ## 1) Infrastructure as Code (IaC)
 
@@ -266,4 +267,39 @@ But be aware that the state file contains sensitive information within it.
 ![](images/terraform47.png)
 
 ## 4) Working With Terraform
+
+### 4.1) Additional Commands
+
+`terraform validate` will parse and scan Terraform files to check if they are valid.
+
+![](images/terraform48.png)
+
+`terraform fmt` will parse and format Terraform files to improve readability.
+
+![](images/terraform49.png)
+
+`terraform show` and `terraform show -json` prints out how Terraform sees the current state of the infrastructure.
+
+![](images/terraform50.png)
+
+`terraform providers` lists all Providers that are installed into the `provider` directory. `terraform providers mirror $PATH` will copy a Provider to another location.
+
+![](images/terraform51.png)
+
+`terraform output` will print all Output Variables. `terraform output $NAME` will print out the specified Output Variable.
+
+![](images/terraform52.png)
+
+`terraform refresh` will make sure the infrastructure managed by Terraform is in the desired state. It will update the State file which can then be applied by `terraform apply`. e.g. manual changes will be undone by this,
+
+![](images/terraform53.png)
+
+`terraform graph` will create a visual representation of the dependencies within objects managed by Terraform. The graph is generated in DOT format.
+
+![](images/terraform54.png)
+
+DOT files can be converted to a file which can be displayed in a web browser. Use the `dot` command from the `graphviz` package.
+
+![](images/terraform55.png)
+
 
