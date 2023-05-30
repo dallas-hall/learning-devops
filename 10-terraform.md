@@ -14,6 +14,12 @@ I knew nothing when doing this course so the notes will be verbose.
   - [3.4) State](#34-state)
 - [4) Working With Terraform](#4-working-with-terraform)
   - [4.1) Additional Commands](#41-additional-commands)
+  - [4.1) Lifecycle Rules](#41-lifecycle-rules)
+  - [4.2) Data Sources](#42-data-sources)
+  - [4.3) Meta-Arguments](#43-meta-arguments)
+  - [4.3.1) Count](#431-count)
+  - [4.3.2) For-Each Loop](#432-for-each-loop)
+  - [4.3.2) Version Constraints](#432-version-constraints)
 
 ## 1) Infrastructure as Code (IaC)
 
@@ -302,4 +308,70 @@ DOT files can be converted to a file which can be displayed in a web browser. Us
 
 ![](images/terraform55.png)
 
+### 4.1) Lifecycle Rules
 
+**Mutable Infrastructure** means that the infrastructure can be upgraded in place. **Immutable Infrastructure** means that the infrastructure cannot be upgraded in place and is instead replaced by new infrastructure that has already been upgreaded. Immutable Infrastructure is preferred because it reduces Configuration Drift. **Configuration Drift** is when multiple infrastructure is meant to configured exactly the same but no longer nis.
+
+Terraform uses immutable infrastruture and by default destroys the current resource first before replacing it with the new resource.
+
+![](images/terraform56.png)
+
+This can be changed with Lifecycle Rules. There is a variety of Lifecycle Rules, here is 3 common ones.
+
+`create_before_destroy` will create the new Resource first before destroying the old one.
+
+![](images/terraform57.png)
+
+`prevent_destroy` will stop a Resource getting destroyed by all Terraform commands except `terraform destroy`.
+
+![](images/terraform58.png)
+
+`ignore_changes` will tell Terraform to ignore any changes to Resource attributes that are specified. They are specified via a list and the `all` keyword covers all attributes.
+
+![](images/terraform59.png)
+
+### 4.2) Data Sources
+
+**Data Sources** allow Terraform to read data that is outside of its control since it wasn't provisioned by Terraform.
+
+![](images/terraform60.png)
+
+They return the default content and base64 encoded content. They can only be used to read existing content.
+
+![](images/terraform61.png)
+
+### 4.3) Meta-Arguments
+
+These special arguments allow you to control various aspects of a module or resource, such as defining dependencies or setting custom configuration options.
+
+### 4.3.1) Count
+
+The **Count** meta-argument accepts a whole number, and creates that many instances of the resource or module. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
+
+But if your input isn't a list and you have multiple items, Terraform will create the a new object instance ontop of the previous object instance.
+
+![](images/terraform62.png)
+
+To create multiple object instances with Count you need to supply it a list. The length of the list can be determined dynamically as well using the `lenght` function.
+
+![](images/terraform63.png)
+
+Be careful when updating an input list that has already been created by Count. It will not recreate the list as expected, it will amend the previous list. You will need to destroy the list first and recreate. Or use the For Each meta-argument.
+
+![](images/terraform64.png)
+
+### 4.3.2) For-Each Loop
+
+The **For-Each** meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set. Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
+
+![](images/terraform65.png)
+
+![](images/terraform66.png)
+
+### 4.3.2) Version Constraints
+
+Use the `terraform` block to define a version constraint for Providers.
+
+![](images/terraform67.png)
+
+There is a variety of equality checking operators available to implement version constraints.
