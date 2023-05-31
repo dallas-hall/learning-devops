@@ -2,6 +2,8 @@
 
 I knew nothing when doing this course so the notes will be verbose.
 
+## Table of Contents <!-- omit in toc -->
+
 - [1) Infrastructure as Code (IaC)](#1-infrastructure-as-code-iac)
   - [1.1) Types Of IaC](#11-types-of-iac)
   - [1.2) Why Terraform?](#12-why-terraform)
